@@ -1,0 +1,45 @@
+#!/bin/bash -e 
+
+echo $0: attempting to generate xyz.js from RUMD trajectory in directory $1TrajectoryFiles
+files="${1}TrajectoryFiles/restar*.xyz.gz"
+
+zcat $files | awk '
+{
+	if(c++==0){
+		N=$1
+		getline
+		for(n=1;n<NF+1;n++){
+			split($n,var,"=")
+			if(var[1]=="numTypes"){
+				numTypes=var[2]
+			}else if(var[1]=="sim_box"){
+				split(var[2],num,",")
+				X=num[2]
+				Y=num[3]
+				Z=num[4]
+			}
+		}
+		printf "var bbox=[%f,%f,%f,%f,%f,%f];\n",-X/2,-Y/2,-Z/2,X/2,Y/2,Z/2
+		printf "var N=%d;\n",N
+		printf "var types=%d;\n",numTypes
+		printf "var diameter=[1.0,0.8,1.0,1.0];\n"
+		printf "var color=[new BABYLON.Color3(0.7, 0.7, 0.9),new BABYLON.Color3(0.0, 0.0, 0.9),new BABYLON.Color3(0.9, 0.0, 0.0),new BABYLON.Color3(0.0, 0.9, 0.0)];\n"
+		printf "var xyz=["
+	}
+	for(i=0;i<N;i++){
+		getline
+		if(d++==0){
+			printf "%d,%3.3f,%3.3f,%3.3f",$1,$2,$3,$4
+		}else{
+			printf ",%d,%3.3f,%3.3f,%3.3f",$1,$2,$3,$4
+		}
+	}
+	#printf "\n"
+	getline
+	#exit 0
+}END{
+	printf "];\n"
+}
+' > xyz.js
+
+
