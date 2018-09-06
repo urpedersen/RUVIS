@@ -18,9 +18,15 @@ Usage example:
         diameterStr: Set particle diameters
         colorStr: Set particle colorts
      
+     Set browser='iframe' to open RUVIS in an iframe.
+     This is the prefered way in Jupyter.
+     
+     Set browser='none' if you just want to generate html
+     without showing the trajectory.
+     
 """
 
-path = '/net/dirac/urp/git/RUVIS/'
+path = '/home/urp/git/RUVIS/'
 html = 'Platforms/WebGL/ruvis.htm'
 babylon = 'Platforms/WebGL/babylon.2.3.js'
 
@@ -32,20 +38,32 @@ new BABYLON.Color3(0.9, 0.0, 0.0), \
 new BABYLON.Color3(0.0, 0.9, 0.0)];\n'
 
 def view():
-    """ View RUMD simulation """
+    """ View RUMD simulation using the restart configurations. """
     write_xyz_js()
-    view_in_webbrowser()
-
-def view_in_webbrowser():
-    """ Open external webbrowser to view simulation. 
-    The default browser is chromium. Change to other browser like this
-       ruvis.browser='firefox'
-    """
     import shutil
     shutil.copy(path+html,'.')
     shutil.copy(path+babylon,'.')
+    
+    if browser=='none':
+        print('Generated html page ' + path+html )
+    elif browser=='iframe':
+        view_iframe()
+    else:
+        view_external_browser()
+
+def view_external_browser():
+    """ Open external browser to view simulation. 
+    The default browser is chromium. Change to other browser like this
+       ruvis.browser='firefox'
+    """
     import subprocess
     subprocess.run([browser,'ruvis.htm'])
+    
+def view_iframe():
+    """ Open RUVIS in an iframe. 
+    This is the prefered way in Jupyter """
+    from IPython.display import IFrame
+    IFrame('./ruvis.htm',width='100%',height=400)
     
 def write_xyz_js():
     """ Write xyz.js file with trejectory data """
@@ -95,16 +113,13 @@ def write_xyz_js():
             i=int(column[0])
             x=float(column[1])
             y=float(column[2])
-            z=float(column[3]) # FIXME
+            z=float(column[3])
             if(isFirst):
                 fo.write('%d,%3.3f,%3.3f,%3.3f\n' % (i,x,y,z))
                 isFirst=False
             else:
                 fo.write(',%d,%3.3f,%3.3f,%3.3f\n' % (i,x,y,z))
-
-            
         f.close()
-
     fo.write(']\n')
     fo.close()
-    print('Wrote xyz.js with trajectory RUVIS.')
+    print('Wrote xyz.js with RUVIS trajectory.')
