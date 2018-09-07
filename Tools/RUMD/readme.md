@@ -1,25 +1,29 @@
 This folder contains tools for usage with [RUMD](http://rumd.org/) software package for Molecular Dynamics simulations.
 
+All the below usage examples assume that you are located in folder with a RUMD simulation. The examples will generate a webpage in the folder that can be viewed with any browser. The examples assume you have firefox installed.
+
 ## Usage from Linux commandline
 ``sh
-rumd2ruvis
+path=/net/dirac/urp/git/RUVIS/
+cp $path/Platforms/WebGL/* .
+$path/Tools/RUMD/rumd2js
+firefox ruvis.htm
 ``
 
 ## Usage with iPython console
 Generate html/js files and launch RUVIS in external browser.
 ```py
-ruvispath="/net/dirac/urp/git/RUVIS/"
-sys.path.insert(1,ruvispath + "Tools/RUMD")
+path="/net/dirac/urp/git/RUVIS/"
+sys.path.insert(1,path + "Tools/RUMD")
 import ruvis as rv
-rv.browser='chromium'
+rv.browser='firefox'
 rv.visualize()
 ```
 
 ## Usage with Jupyter notebook
-Write the foloing 
 ```py
-ruvispath="/net/dirac/urp/git/RUVIS/"
-sys.path.insert(1,ruvispath + "Tools/RUMD")
+path="/net/dirac/urp/git/RUVIS/"
+sys.path.insert(1,path + "Tools/RUMD")
 import ruvis as rv
 rv.update()
 from IPython.display import IFrame
