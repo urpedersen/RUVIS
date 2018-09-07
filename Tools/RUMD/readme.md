@@ -1,6 +1,6 @@
 This folder contains tools for usage with [RUMD](http://rumd.org/) software package for Molecular Dynamics simulations.
 
-All the below usage examples assume that you are located in folder with a RUMD simulation. The examples will generate a webpage in the folder that can be viewed with any browser. The examples assume you have firefox installed.
+All the below usage examples assume that you are located in folder with a RUMD simulation. The examples will generate a webpage in the folder that can be viewed with any browser. The examples assume you have firefox installed, however, pick your favorite.
 
 ## Usage from Linux commandline
 ``sh
