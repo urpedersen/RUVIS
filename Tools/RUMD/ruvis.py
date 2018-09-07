@@ -18,12 +18,6 @@ Usage example:
         diameterStr: Set particle diameters
         colorStr: Set particle colorts
      
-     Set browser='iframe' to open RUVIS in an iframe.
-     This is the prefered way in Jupyter.
-     
-     Set browser='none' if you just want to generate html
-     without showing the trajectory.
-     
 """
 
 path = '/home/urp/git/RUVIS/'
@@ -37,12 +31,16 @@ new BABYLON.Color3(0.0, 0.0, 0.9), \
 new BABYLON.Color3(0.9, 0.0, 0.0), \
 new BABYLON.Color3(0.0, 0.9, 0.0)];\n'
 
-def view():
-    """ View RUMD simulation using the restart configurations. """
-    write_xyz_js()
+def update()
+    """ Update RUVIS files in current directory """
     import shutil
     shutil.copy(path+html,'.')
-    shutil.copy(path+babylon,'.')
+    shutil.copy(path+babylon,'.')    
+    write_xyz_js()
+
+def view():
+    """ View RUMD simulation using the restart configurations. """
+    update()
     
     if browser=='none':
         print('Generated html page ' + path+html )
@@ -66,7 +64,7 @@ def view_iframe():
     IFrame('./ruvis.htm',width='100%',height=400)
     
 def write_xyz_js():
-    """ Write xyz.js file with trejectory data """
+    """ Write xyz.js file with trajectory data """
     import gzip
     trjdir='./TrajectoryFiles/'
         
