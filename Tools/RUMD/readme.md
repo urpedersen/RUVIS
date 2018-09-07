@@ -1,3 +1,4 @@
+This folder contains tools for usage with [RUMD](http://rumd.org/)
 
 ## Usage with Jupyter
 Write the foloing 
