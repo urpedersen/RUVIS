@@ -38,18 +38,18 @@ def update()
     shutil.copy(path+babylon,'.')    
     write_xyz_js()
 
-def view():
+def visualize():
     """ View RUMD simulation using the restart configurations. """
     update()
     
     if browser=='none':
         print('Generated html page ' + path+html )
     elif browser=='iframe':
-        view_iframe()
+        iframe()
     else:
-        view_external_browser()
+        external_browser()
 
-def view_external_browser():
+def external_browser():
     """ Open external browser to view simulation. 
     The default browser is chromium. Change to other browser like this
        ruvis.browser='firefox'
@@ -57,7 +57,7 @@ def view_external_browser():
     import subprocess
     subprocess.run([browser,'ruvis.htm'])
     
-def view_iframe():
+def iframe():
     """ Open RUVIS in an iframe. 
     This is the prefered way in Jupyter """
     from IPython.display import IFrame
