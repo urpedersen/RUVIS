@@ -16,3 +16,5 @@ An trajectory is assumed to be avalible in a file named `xyz.js`.
 This file can be generated with the tools avaible in the folder Tools/
 
 The tools will generate files for a webpage. You can view them with your favorite browser, or put them on your webserver.
+
+Press `i` in the browser see information screen with keyboard shortcuts.
