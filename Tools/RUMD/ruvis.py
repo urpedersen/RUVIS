@@ -31,7 +31,7 @@ new BABYLON.Color3(0.0, 0.0, 0.9), \
 new BABYLON.Color3(0.9, 0.0, 0.0), \
 new BABYLON.Color3(0.0, 0.9, 0.0)];\n'
 
-def update()
+def update():
     """ Update RUVIS files in current directory """
     import shutil
     shutil.copy(path+html,'.')
