@@ -20,7 +20,7 @@ The tools will generate files for a webpage. You can view them with your favorit
 Press `i` in the browser see information screen with keyboard shortcuts.
 
 ## Showcase
-[Interactive example](http://urp.dk/ruvis/ruvis.htm)
+[Click here to try an interactive example](http://urp.dk/ruvis/ruvis.htm)
 
 
 ![RUVIS in Jupyter](http://urp.dk/ruvis/ruvisJupyter.png)
