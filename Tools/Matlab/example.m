@@ -1,4 +1,4 @@
-%% Example of Matlab script for making a RUVIS trejectory file.
+%% Example of Matlab script for making a RUVIS trajectory file.
 
 % Make 4 of type 0 and 4 of type 1
 traj.N=8;
