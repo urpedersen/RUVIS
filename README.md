@@ -8,6 +8,8 @@ Download the source code from GitHub with
 
 `git clone https://github.com/urpedersen/RUVIS`
 
+Type `git pull` in the RUVIS folder to update files to the lates versions.
+
 ## Usage
 The folder Platforms/WebGL/ contains html and javascript files for a webpage.
 An trajectory is assumed to be avalible in a file named `xyz.js`.
