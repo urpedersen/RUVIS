@@ -1,7 +1,7 @@
 # RUVIS
 RUVIS animates a Molecular Dynamics (MD) trajectory in a web-page using the babylonJS API. Trajectories can be viewed a cross platforms, since it only requires a WebGL compatible browser (including Windows PC's, Mac OS, Linux, tablets and phones). Tools are provided for RUMD and Matlab simulations.
 
-Please note that RUVIS is in an early development stage. Feel free to contact me ([Ulf R. Pedersen](http://urp.dk)) for questions or suggestions on ruvis@urp.dk. The project is currently hosted at GitHub Inc., however, the permanet location of the project is http://urp.dk/ruvis/.
+Please note that RUVIS is in an early development stage. Feel free to contact me ([Ulf R. Pedersen](http://urp.dk)) for questions or suggestions. The project is currently hosted at GitHub Inc., however, the permanet location of the project is http://urp.dk/ruvis/.
 
 ## Download code
 Download the source code from GitHub with
