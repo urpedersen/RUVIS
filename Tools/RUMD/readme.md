@@ -3,12 +3,12 @@ This folder contains tools for usage with [RUMD](http://rumd.org/) software pack
 All the below usage examples assume that you are located in folder with a RUMD simulation. The examples will generate a webpage in the folder that can be viewed with any browser. The examples assume you have firefox installed, however, pick your favorite.
 
 ## Usage from Linux commandline
-``sh
+```sh
 path=/net/dirac/urp/git/RUVIS/
 cp $path/Platforms/WebGL/* .
 $path/Tools/RUMD/rumd2js
 firefox ruvis.htm
-``
+```
 
 ## Usage with iPython console
 Generate html/js files and launch RUVIS in external browser.
