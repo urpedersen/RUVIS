@@ -17,6 +17,7 @@ Usage example:
         browser: external browser
         diameterStr: Set particle diameters
         colorStr: Set particle colorts
+        trjdir: Input directory with RUMD trajectory
      
 """
 
@@ -30,6 +31,7 @@ colorStr='var color=[new BABYLON.Color3(0.7, 0.7, 0.9), \
 new BABYLON.Color3(0.0, 0.0, 0.9), \
 new BABYLON.Color3(0.9, 0.0, 0.0), \
 new BABYLON.Color3(0.0, 0.9, 0.0)];\n'
+trjdir='./TrajectoryFiles/'
 
 def update():
     """ Update RUVIS files in current directory """
@@ -66,7 +68,6 @@ def iframe():
 def write_xyz_js():
     """ Write xyz.js file with trajectory data """
     import gzip
-    trjdir='./TrajectoryFiles/'
         
     fo = open('xyz.js','wt') # Output file
     fo.write('// Trajactory file for RUVIS\n')
